@@ -88,6 +88,9 @@ public class Cliente {
 		}
 		return promedio;
 	}
+	public double totalPedido(Pedido unPedido) {
+		return unPedido.totalPedido();
+	}
 
 	public Producto productoMasComprado(Pedido unPedido) {
 		// busca el producto cuya cantidad en unidades es la mayor que se ha comprado

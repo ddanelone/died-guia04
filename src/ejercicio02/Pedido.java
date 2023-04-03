@@ -78,13 +78,18 @@ public class Pedido {
 	}
 	
 	public double totalPedido() {
-		//A su vez el pedido tiene un método que retorna el subtotal
-		//(el precio de cada línea de pedido) y el total, que es el subtotal mas el 21% de IVA en caso de que 
-		//el cliente sea consumidor final.
-		return 0.0;
-	}
+		// A su vez el pedido tiene un método que retorna el subtotal
+		// (el precio de cada línea de pedido) y el total, que es el subtotal mas el 21%
+		// de IVA en caso de que
+		// el cliente sea consumidor final.
+		Double total = 0.0;
+		if (this.existePedido() && (this.cantidadLineas() > 0)) {
+			for (DetallePedido detalle : this.detalle) {
+				total += detalle.totalLinea();
+			}
+		}
 
-//	public void setDetalle(List<DetallePedido> detalle) {
-//		this.detalle = detalle;
-//	}	
+		return (this.cliente.getConsFinal()) ? total : total * 1.21;
+
+	}
 }

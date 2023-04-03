@@ -4,7 +4,7 @@ import ejercicio02.Producto.Unidad;
 
 public class App {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {	
 		Cliente cliente1 = new Cliente("Diego", "ddanelone@hotmail.com", 2024876678, true);
 		Cliente cliente2 = new Cliente("Jorge", "jorgito@algo.com", 2035655525, false);
 
@@ -30,11 +30,16 @@ public class App {
 		cliente2.confirmarPedido(pedido2);
 
 		System.out.println(
-				"Costo Promedio cliente: " + cliente1.getNombre() + ": " + cliente1.costoPromedioPedido(pedido1));
+				"Costo Promedio cliente: " + cliente1.getNombre() + ": " + String.format("%.2f", cliente1.costoPromedioPedido(pedido1)));
 		System.out.println(
-				"Costo Promedio cliente: " + cliente2.getNombre() + ": " + cliente2.costoPromedioPedido(pedido2));
+				"Costo Promedio cliente: " + cliente2.getNombre() + ": " + String.format("%.2f",  cliente2.costoPromedioPedido(pedido2)));
 		
 		System.out.println("Producto más vendido: " + cliente1.productoMasComprado(pedido1).getDescripcion());
+		
+		
+
+		System.out.println("Total del pedido 1: " + String.format("%.2f", cliente1.totalPedido(pedido1)));
+		System.out.println("Total del pedido 2: " + String.format("%.2f",cliente2.totalPedido(pedido2)));
 
 		cliente1.confirmarPedido(pedido1);
 		cliente1.confirmarPedido(pedido2);
